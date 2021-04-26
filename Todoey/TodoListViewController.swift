@@ -12,12 +12,13 @@ class TodoListViewController: UITableViewController {
     
     var itemArray = ["Apple","Mango","Peach","Banana","Orange","Grapes"]
     
+    //Initiage user defaults
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
+        if let items = defaults.array(forKey: K.DictionaryKeyTodoListItems) as? [String] {
             itemArray = items
         }
     }
@@ -55,7 +56,8 @@ class TodoListViewController: UITableViewController {
             print("Success")
             self.itemArray.append(textField.text!)
             
-            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+            //Save item to user defaults. 
+            self.defaults.set(self.itemArray, forKey: K.DictionaryKeyTodoListItems)
             
             self.tableView.reloadData()
         }

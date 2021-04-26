@@ -10,4 +10,5 @@ import Foundation
 
 struct K {
     static let TodoItemCellIdentifier = "TodoItemCell"
+    static let DictionaryKeyTodoListItems = "dictionaryKeyTodoListItems"
 }
